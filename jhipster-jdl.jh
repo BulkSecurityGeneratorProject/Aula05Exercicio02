@@ -1,0 +1,149 @@
+
+entity Permissao {
+	tipo String,
+	data String
+}
+
+entity Usuario {
+	perfil String,
+}
+
+entity Pessoa {
+	tipo Boolean,
+    cpfcnpj Integer
+}
+
+entity Aluno {
+	nome String,
+    matricula Integer
+}
+
+entity Professor {
+	nome String,
+    matricula Integer
+}
+
+entity Falta {
+	motivo String,
+    data Integer
+}
+
+entity Nota {
+	disciplina String,
+    valor Integer
+}
+
+entity Turma {
+	turno String,
+    periodo Integer
+}
+
+entity Aula {
+	local String,
+    horario Integer
+}
+
+entity Atividade {
+	descricao String,
+    pontos Double
+}
+
+entity Entrega {
+	descricao String,
+    data Integer
+
+}
+
+entity PeriodoLetivo {
+	tipo Integer
+}
+
+entity Permissao {
+	nivel Integer,
+    dataExpiracao Integer
+}
+
+
+// an ignored comment
+/** not an ignored comment */
+
+
+relationship OneToMany {
+	Permissao to Usuario
+}
+
+relationship OneToOne {
+	Usuario to Pessoa
+}
+
+relationship OneToOne {
+	Professor to Pessoa
+}
+
+relationship OneToOne {
+	Aluno to Pessoa
+}
+
+relationship ManyToMany {
+	Professor to Disciplina
+}
+
+relationship OneToMany {
+	Professor to Atividade
+}
+
+relationship OneToMany {
+	Professor to Turma
+}
+
+relationship OneToMany {
+	Disciplina to Atividade
+}
+
+relationship OneToMany {
+	Atividade to Nota
+}
+
+relationship OneToMany {
+	Atividade to Entrega
+}
+
+relationship OneToMany {
+	Entrega to Aluno
+}
+
+
+relationship OneToMany {
+	Turma to Aula
+}
+
+relationship OneToMany {
+	Turma to Aluno
+}
+
+
+relationship OneToMany {
+	PeriodoLetivo to Aula
+}
+
+relationship OneToMany {
+	PeriodoLetivo to Falta
+}
+
+relationship OneToMany {
+	Aula to Falta
+}
+
+relationship OneToMany {
+	Aluno to Falta
+}
+
+relationship OneToMany {
+	Aluno to Nota
+}
+
+
+
+
+
+
